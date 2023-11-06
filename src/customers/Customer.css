@@ -1,0 +1,84 @@
+.Customer{
+    height: 1000px;
+padding: 40px;
+margin-top: -16px;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+  }
+.Total{
+    height: 800px;
+    border-radius: 5px;
+
+  
+}
+.Top{
+    height: 70px;
+background-color: rgba(255, 255, 255, 0.599);
+    width: 98%;
+    text-align: left;
+    font-weight:100 ;
+    border-top-right-radius:5px ;
+    border-top-left-radius: 5px;
+    color: grey;
+    margin-top: -22px;
+    padding-left: 20px;
+    border: 1px solid rgb(219, 219, 219) ;
+}
+.Inputfield{
+    margin-right: 220px;
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 20px;
+   margin-top: 10px;
+   width: 20%;
+   padding: 2px;
+}
+.Input{
+
+    width:100%;
+  font-weight: 500;
+       height: 100px;
+       color: black;
+    font-size: 15px;
+    border: 1px solid rgb(219, 219, 219);
+   }
+   .Createbutton{
+    background-color: rgb(5, 25, 40);
+        color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(219, 219, 219);
+   }
+   .Updatebutton{
+    background-color: rgb(5, 25, 40);    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(219, 219, 219);
+   }
+   .Editbutton{
+    background-color: rgb(4, 86, 4);
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(219, 219, 219);
+   }
+   .Deletebutton{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(219, 219, 219);
+   }
+.Table{
+    width: 100%;    
+    border-collapse: collapse;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
+margin-top: 100px;
+}
+
+.Td{
+
+    border:1px solid rgb(219, 219, 219);
+}
+.Th{
+    background-color: rgba(255, 255, 255, 0.599);
+    border: 1px solid rgb(219, 219, 219);
+    color:grey;
+}

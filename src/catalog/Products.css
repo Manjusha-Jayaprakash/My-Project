@@ -1,0 +1,153 @@
+.Products{
+    height: 1000px;
+padding: 40px;
+ margin-top: -16px;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+
+  }
+.ProductsTotal{
+  
+    border-radius: 5px;
+}
+.ProductsTop{
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.599);
+        width: 100%;
+        text-align: left;
+        font-weight:100 ;
+        border-top-right-radius:5px ;
+        border-top-left-radius: 5px;
+        color: grey;
+        margin-top: -22px;
+        padding-left: 20px;
+        border: 1px solid rgb(219, 219, 219) ;
+}
+.Topbuttons{
+    height: 50px;
+    width: 10%;
+    margin-left: 85%;
+    margin-top: -7%;
+ 
+}
+.ProductsInputfield{
+    margin-right: 220px;
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    height: 300px;
+  margin-top: -2px;
+   width: 100%;
+   padding: 6px;
+
+
+}
+.Outline{
+   text-align: left;
+    width: 90%;
+   font-weight: 500;
+   margin-left: 5%;
+  
+
+}
+.Leftside{
+    width: 45%;
+    list-style: none;
+}
+.Rightside{
+
+    width: 40%;
+    float: right;
+    margin-top: -195px;
+    list-style: none;
+}
+.ProductsInput{
+    width:50%;
+  font-weight: 500;
+       height: 30px;
+       color: black;
+    font-size: 15px;
+    border: 1px solid rgb(219, 219, 219);
+    margin-top: 10px;
+padding: 3px;
+margin-left: 10px;
+}
+.ProductsCreatebutton{
+    background-color: rgb(5, 25, 40);
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 40%;
+    border: none;
+    font-size: large;
+    padding-top: 3px;
+
+ 
+}
+.ProductsCreatebutton:hover{
+    color: rgb(5, 25, 40);
+    background-color: white;
+    border: 1px solid rgb(5, 25, 40);
+   }
+   .ProductsUpdatebutton{
+    background-color: rgb(5, 25, 40);
+    color: white;
+        border-radius: 5px;
+        height: 40px;
+    width: 40%;
+        border: none;
+   }
+   .ProductsUpdatebutton:hover{
+    color: rgb(5, 25, 40);
+    background-color: white;
+    border: 1px solid rgb(5, 25, 40);
+   }
+   .ProductsEditbutton{
+    background-color: rgb(4, 86, 4);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 40%;
+   border: none;
+    margin-right: 10px;
+   }
+   .ProductsEditbutton:hover{
+    color: rgb(4, 86, 4);
+    background-color: white;
+    border: 1px solid rgb(4, 86, 4);
+   }
+   .ProductsDeleteSelectedButton{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+    margin-left: 10px;
+  width: 40%;
+  margin-bottom: 3px;
+  font-size: medium;
+  padding-top: 2px;
+ 
+   }
+   .ProductsDeleteSelectedButton:hover{
+    color: red;
+    background-color: white;
+   border: 1px solid red;
+   
+   }
+.ProductsTable{
+    width: 100%;    
+    border-collapse: collapse;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
+margin-top: 100px;
+}
+
+.ProductsTd{
+
+    border:1px solid rgb(219, 219, 219);
+}
+.ProductsTh{
+    background-color: rgba(255, 255, 255, 0.599);
+    border: 1px solid rgb(219, 219, 219);
+    color: grey;
+}

@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors=require("cors");
+const cors = require('cors');
 
-const mongoURI="mongodb://127.0.0.1:27017/frontend"
+const mongoURI = 'mongodb://127.0.0.1:27017/frontend';
 const app = express();
 const PORT = process.env.PORT || 3003;
-
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -32,33 +31,35 @@ const productSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 
+// GET /api/products
 app.get('/api/products', async (req, res) => {
   try {
-    const products = await Product.find();
-    res.json(products);
+    const { page = 1, limit = 10, sortBy = '_id', sortOrder = 'desc' } = req.query;
+    const skip = (page - 1) * limit;
+
+    const sortOptions = { [sortBy]: sortOrder === 'desc' ? -1 : 1 };
+
+    const products = await Product.find()
+      .sort(sortOptions)
+      .skip(skip)
+      .limit(Number(limit));
+
+    const totalProducts = await Product.countDocuments();
+    const totalPages = Math.ceil(totalProducts / limit);
+
+    res.json({ products, totalPages });
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-function isValidProductData(productData) {
-  return (
-    productData.mainCategory &&
-    productData.subCategory &&
-    productData.productName &&
-    productData.description &&
-    productData.price > 0 &&
-    productData.offerPrice >= 0 &&
-    productData.quantity >= 0 &&
-    productData.image
-  );
-}
 
+// POST /api/products
 app.post('/api/products', async (req, res) => {
   try {
     const newProductData = req.body;
 
-     if (!isValidProductData(newProductData) ){
+    if (!isValidProductData(newProductData)) {
       return res.status(400).json({ message: 'Please provide all required fields' });
     }
 
@@ -72,12 +73,13 @@ app.post('/api/products', async (req, res) => {
   }
 });
 
+// PUT /api/products/:id
 app.put('/api/products/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const updatedProductData = req.body;
 
-    if (!isValidProductData(updatedProductData))  {
+    if (!isValidProductData(updatedProductData)) {
       return res.status(400).json({ message: 'Please provide all required fields' });
     }
 
@@ -97,8 +99,8 @@ app.put('/api/products/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-// ... (existing code)
 
+// DELETE /api/products
 app.delete('/api/products', async (req, res) => {
   try {
     const { productIds } = req.body;
@@ -120,11 +122,19 @@ app.delete('/api/products', async (req, res) => {
   }
 });
 
-
-
-
-
-
 app.listen(PORT, () => {
   console.log(`ProductServer is running on port ${PORT}`);
 });
+
+function isValidProductData(productData) {
+  return (
+    productData.mainCategory &&
+    productData.subCategory &&
+    productData.productName &&
+    productData.description &&
+    productData.price > 0 &&
+    productData.offerPrice >= 0 &&
+    productData.quantity >= 0 &&
+    productData.image
+  );
+}

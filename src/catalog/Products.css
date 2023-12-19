@@ -11,7 +11,7 @@ padding: 40px;
 .ProductsTop{
     height: 70px;
     background-color: rgba(255, 255, 255, 0.599);
-        width: 99%;
+        width: 100%;
         text-align: left;
         font-weight:100 ;
         border-top-right-radius:5px ;
@@ -19,7 +19,9 @@ padding: 40px;
         color: grey;
         margin-top: -22px;
         padding-left: 20px;
-        border: 1px solid rgb(193, 191, 191);
+        border-top: 1px solid rgb(99, 99, 99);
+        border-left: 1px solid rgb(99, 99, 99);
+        border-right: 1px solid rgb(99, 99, 99);
 }
 .Topbuttons{
     height: 50px;
@@ -30,10 +32,11 @@ padding: 40px;
 }
 .ProductsInputfield{
     margin-right: 220px;
-    border: 1px solid rgb(193, 191, 191);    border-radius: 4px;
+    border: 1px solid rgb(99, 99, 99); 
+       border-radius: 4px;
     height: 250px;
   margin-top: -2px;
-   width: 100%;
+   width: 101%;
    padding: 6px;
 }
 .Outline{
@@ -48,7 +51,7 @@ padding: 40px;
     margin-top: 3%;
 }
 .Rightside{
-    width: 40%;
+    width: 45%;
     float: right;
     margin-top: -195px;
     list-style: none;
@@ -59,15 +62,16 @@ padding: 40px;
        height: 30px;
        color: black;
     font-size: 15px;
-    border: 1px solid rgb(193, 191, 191);  
+    border: 1px solid rgb(99, 99, 99);  
       margin-top: 10px;
 padding: 3px;
 margin-left: 10px;
 }
 .Categorydropdown{
-   width: 51%;
+   width: 52%;
    height: 38px;
-   border: 1px solid rgb(193, 191, 191);   padding: 3px;
+   border: 1px solid rgb(99, 99, 99);  
+    padding: 3px;
    font-weight: 500;
    margin-top: 10px;
    color: black;
@@ -136,23 +140,28 @@ margin-left: 10px;
    border: 1px solid red;
    
    }
+   .ProductsInput-table{
+    margin-top: 10%;
+       border: 1px solid rgb(193, 191, 191) ;
+    padding-top: 0;
+      }
 .ProductsTable{
-    width: 100%;    
+  width: 103%;   
     border-collapse: collapse;
-    border-top: 1px solid rgb(219, 219, 219);
-    border-bottom: 1px solid rgb(219, 219, 219);
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(99, 99, 99);
 margin-top: 100px;
 }
 
 .ProductsTd{
     height: 40px;
-    border:1px solid rgb(219, 219, 219);
+    border:1px solid rgb(99, 99, 99);
 }
 .ProductsTh{
     background-color: rgba(255, 255, 255, 0.599);
-    border: 1px solid rgb(219, 219, 219);
-    color: grey;
-    padding: 1%;
+    border: 1px solid rgb(99, 99, 99);
+    color: #383838;
+    padding: 1%
 }
 .Products-Pagination{
     margin-top: 2%;

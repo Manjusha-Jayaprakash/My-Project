@@ -8,7 +8,6 @@ margin-top: -16px;
 .CategoriesTotal{
     height: 800px;
     border-radius: 5px;
-  
 }
 .CategoriesTop{
     height: 70px;
@@ -21,11 +20,11 @@ background-color: rgba(255, 255, 255, 0.599);
     color: grey;
     margin-top: -22px;
     padding-left: 20px;
-    border: 1px solid rgb(193, 191, 191) ;
+    border: 1px solid rgb(99, 99, 99) ;
 }
 .CategoriesInputfield{
    float: left;
-    border: 2px solid rgb(193, 191, 191);
+    border: 1px solid rgb(99, 99, 99);
     border-radius: 4px;
     height: 20px;
    margin-top: 20px;
@@ -42,9 +41,9 @@ height: 200px;
   font-weight: 500;
 color: black;
     font-size: 15px;
-    border-left: 1px solid rgb(193, 191, 191);
-    border-right: 1px solid rgb(193, 191, 191);
-    border-bottom: 1px solid rgb(193, 191, 191);
+    border-left: 1px solid rgb(99, 99, 99);
+    border-right:1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(99, 99, 99);
 
 }
 .CategoriesCreatebutton{
@@ -115,22 +114,21 @@ cursor: pointer;
    }
    .CategoriesInput-table{
  margin-top: 10%;
-    border: 1px solid rgb(193, 191, 191) ;
  padding-top: 0;
    }
 .CategoriesTable{
     width: 100%;    
     border-collapse: collapse;
-    border-top: 1px solid rgb(193, 191, 191);
-    border-bottom: 1px solid rgb(193, 191, 191);
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(99, 99, 99);
 }
 .CategoriesTd{
     height: 40px;
-    border:1px solid rgb(193, 191, 191);
+    border:1px solid rgb(99, 99, 99);
 }
 .CategoriesTh{
     background-color: rgba(255, 255, 255, 0.599);
-    border: 1px solid rgb(193, 191, 191);
+    border: 1px solid rgb(99, 99, 99);
     color:grey;
     padding: 1%;
 }

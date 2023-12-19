@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 import { IoMdAdd } from 'react-icons/io';
 import { MdEdit } from 'react-icons/md';
 import { AiFillDelete } from 'react-icons/ai';
 import { RxUpdate } from 'react-icons/rx';
 import "./Products.css";
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 
 
 function ProductManagement() {
@@ -25,12 +28,36 @@ function ProductManagement() {
   const [categories, setMainCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
   const [selectedMainCategory, setSelectedMainCategory] = useState('');
-  const [selectedSubCategory, setSelectedSubCategory] = useState('');
+const [selectedSubCategory, setSelectedSubCategory] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const itemsPerPage = 10;
+  useEffect(() => {
+    // Fetch products based on pagination
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`http://localhost:3003/api/products?page=${currentPage}&limit=${itemsPerPage}`);
+        const data = await response.json();
+        // Check if 'products' is present in the response data
+        if (Array.isArray(data.products)) {
+          setProducts(data.products);
+          setTotalPages(data.totalPages || 1);
+        } else {
+          console.error('Error fetching products: "products" field is not an array');
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error.message);
+      }
+    };
+  
+    fetchProducts();
+  }, [currentPage]);
   
 
   useEffect(() => {
-    setSortedProducts([...products].sort((a, b) => b._id.localeCompare(a._id)));
+    setSortedProducts(Array.isArray(products) ? [...products].sort((a, b) => b._id.localeCompare(a._id)) : []);
   }, [products]);
+  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -67,27 +94,11 @@ function ProductManagement() {
     }
   }, [selectedMainCategory]);
 
-   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`http://localhost:3003/api/products`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch products: ${response.statusText}`);
-        }
-    
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error('Error fetching products:', error.message);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  // ... (existing code)
+   
+  
   const handleCreate = async () => {
     try {
+      console.log('Attempting to create product with data:', newProduct);
       if (
         selectedMainCategory &&
         selectedSubCategory &&
@@ -119,10 +130,10 @@ function ProductManagement() {
           console.log('Product created successfully');
   
           // Fetch the updated products and set the state
-          const productsResponse = await fetch('http://localhost:3003/api/products');
+          const productsResponse = await fetch(`http://localhost:3003/api/products`);
           const updatedProducts = await productsResponse.json();
           setProducts(updatedProducts);
-  
+          setCurrentPage(1);
           // Clear the form
           setNewProduct({
             mainCategory: '',
@@ -177,11 +188,19 @@ function ProductManagement() {
           console.log('Product updated successfully');
   
           // Fetch the updated products and set the state
-          const productsResponse = await fetch('http://localhost:3003/api/products');
-          const updatedProducts = await productsResponse.json();
-          setProducts(updatedProducts);
+          const updatedProductsResponse = await fetch(`http://localhost:3003/api/products?page=${currentPage}&limit=${itemsPerPage}`);
+          const updatedData = await updatedProductsResponse.json();
   
-          // Clear the form
+          // Check if 'products' is present in the response data
+          if (Array.isArray(updatedData.products)) {
+            console.log('Updated products:', updatedData.products);
+            setProducts(updatedData.products);
+            setTotalPages(updatedData.totalPages || 1);
+          } else {
+            console.error('Error fetching products: "products" field is not an array');
+          }
+  
+          // Clear the form and reset editingProduct
           setNewProduct({
             mainCategory: '',
             subCategory: '',
@@ -192,9 +211,8 @@ function ProductManagement() {
             quantity: 0,
             image: '',
           });
-
           setSelectedMainCategory('');
-        setSelectedSubCategory('');
+          setSelectedSubCategory('');
           setEditingProduct(null);
         } else {
           console.error('Error updating product:', response.status);
@@ -277,6 +295,15 @@ const handleDeleteSelected = async () => {
     }
   };
 
+  const handlePagination = (action) => {
+    // Handle pagination based on action (previous or next)
+    if (action === 'previous') {
+      setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    } else if (action === 'next') {
+      setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+    }
+  };
+
   return (
     <div className='Products'>
       <div className='ProductsTotal'>
@@ -353,7 +380,7 @@ onChange={(e) => setNewProduct({ ...newProduct, productName: e.target.value })}
               <div className='Rightside'>
                 <li>
                   Product Price:
-                  <input className="ProductsInput"
+                  <input className="ProductsInput" style={{ marginLeft: "4%" }}
                     type="number"
                     placeholder="Price"
                     value={newProduct.price}
@@ -362,7 +389,7 @@ onChange={(e) => setNewProduct({ ...newProduct, productName: e.target.value })}
                 </li>
                 <li>
                   Offer Price:
-                  <input className="ProductsInput" style={{ marginLeft: "8%" }}
+                  <input className="ProductsInput" style={{ marginLeft: "9%" }}
                     type="number"
                     placeholder="Offer Price"
                     value={newProduct.offerPrice}
@@ -391,8 +418,9 @@ onChange={(e) => setNewProduct({ ...newProduct, productName: e.target.value })}
             </ul>
           </div>
         </div>
+        <Container >
         <table className='ProductsTable'>
-          <thead className='ProductsHeader'>
+          <thead>
             <tr className='ProductsTr'>
               <th className='ProductsTh'>
                 <input
@@ -414,18 +442,16 @@ onChange={(e) => setNewProduct({ ...newProduct, productName: e.target.value })}
             </tr>
           </thead>
           <tbody>
-           {sortedProducts.map((product, index) => (
-    <tr className='ProductsTr' key={index}>
-      <td className='ProductsTd'>
-        <input
-          type="checkbox"
-          checked={selectAll || selectedItems.includes(product._id)}
-          onChange={() => handleSelectItem(product._id)}
-/>
-
-
-                </td>
-                <td className='ProductsTd'>{index + 1}</td>
+          {sortedProducts.map((product, index) => (
+  <tr className='ProductsTr' key={index}>
+            <td className='ProductsTd'>
+              <input
+                type="checkbox"
+                checked={selectAll || selectedItems.includes(product._id)}
+                onChange={() => handleSelectItem(product._id)}
+              />
+            </td>
+            <td className='ProductsTd'>{index + 1 + (currentPage - 1) * itemsPerPage}</td>
                 <td className='ProductsTd'>{product.mainCategory}</td>
                 <td className='ProductsTd'>{product.subCategory}</td>
                 <td className='ProductsTd'>{product.productName}</td>
@@ -436,13 +462,30 @@ onChange={(e) => setNewProduct({ ...newProduct, productName: e.target.value })}
                 <td className='ProductsTd'>
                   <img src={product.image} alt={product.productName} style={{ maxWidth: '100px' }} />
                 </td>
-                <td>
+                <td className='ProductsTd'>
                   <button className='ProductsEditbutton' onClick={() => handleEdit(product)}><MdEdit /></button>
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
+        </table></Container>
+        <div className="Products-Pagination">
+        <button
+          className="Previous-Button"
+          onClick={() => handlePagination('previous')}
+          disabled={currentPage === 1}
+        >
+          <GrPrevious />
+        </button>
+        <span>{`Page ${currentPage} of ${totalPages}`}</span>
+        <button
+          className="Next-Button"
+          onClick={() => handlePagination('next')}
+          disabled={currentPage === totalPages}
+        >
+          <GrNext />
+        </button>
+      </div>
       </div>
     </div>
   );

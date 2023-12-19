@@ -44,7 +44,7 @@ export default function Anotherpage(){
         <ul className="Sidebar"><i class="bi bi-list"></i><p className="sideheading">NAVIGATION</p><Button className="CloseButton" >
         <i class="bi bi-x" ></i>
       </Button>
-     <li className="List"><Link to="admin-login/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</Link></li>
+     <li className="List"><Link to="/admin-login/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</Link></li>
      <li className="List" onClick={toggleCatalogDropdown }><i class="bi bi-bookmarks"></i> Catalog <i class="bi bi-caret-down-fill" id="Arrow" onClick={toggleCatalogDropdown}></i>
             {showCatalogDropdown && (
               <div className="dropdown">

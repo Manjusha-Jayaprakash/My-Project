@@ -23,12 +23,12 @@ margin-top: -16px;
     color: grey;
     margin-top: -17px;
     padding-left: 20px;
-    border: 1px solid rgb(219, 219, 219) ;
+    border:1px solid rgb(99, 99, 99);
     margin-left: -2px;
 }
 .Inputfield{
     margin-right: 220px;
-    border: 2px solid rgb(219, 219, 219);
+    border:1px solid rgb(99, 99, 99);
     border-radius: 4px;
     height: 20px;
     margin-top: 20px;
@@ -44,7 +44,7 @@ margin-left: -2px;
        height: 200px;
        color: black;
     font-size: 15px;
-    border: 1px solid rgb(219, 219, 219);
+    border: 1px solid rgb(99, 99, 99);
     text-align: center;
    }
    
@@ -75,24 +75,24 @@ margin-left: -2px;
    }
 .Customer-Table{
     width: 100%;    
-    border-left: 1px solid rgb(219, 219, 219);
-    border-top: 1px solid rgb(219, 219, 219);
-    border-bottom: 1px solid rgb(219, 219, 219);
+    border-left: 1px solid rgb(99, 99, 99);
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom:1px solid rgb(99, 99, 99);
 margin-top: -1px;
 margin-left: -1px;
 border-collapse: collapse;
 text-align: center;
-border-right:  1px solid rgb(219, 219, 219);
+border-right: 1px solid rgb(99, 99, 99);
 }
 
 .Customer-Td{
 text-align: center;
 height: 50px;
-    border:1px solid rgb(219, 219, 219);
+    border:1px solid rgb(99, 99, 99);
 }
 .Customer-Th{
     background-color: rgba(255, 255, 255, 0.599);
-    border: 1px solid rgb(219, 219, 219);
+    border: 1px solid rgb(99, 99, 99);
     color:grey;
     padding: 1%;
 }

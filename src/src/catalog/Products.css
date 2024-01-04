@@ -1,0 +1,191 @@
+.Products{
+    height: 1000px;
+padding: 40px;
+ margin-top: -16px;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+}
+.ProductsTotal{
+    border-radius: 5px;
+}
+.ProductsTop{
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.599);
+        width: 100%;
+        text-align: left;
+        font-weight:100 ;
+        border-top-right-radius:5px ;
+        border-top-left-radius: 5px;
+        color: grey;
+        margin-top: -22px;
+        padding-left: 20px;
+        border-top: 1px solid rgb(99, 99, 99);
+        border-left: 1px solid rgb(99, 99, 99);
+        border-right: 1px solid rgb(99, 99, 99);
+}
+.Topbuttons{
+    height: 50px;
+    width: 10%;
+    margin-left: 85%;
+    margin-top: -7%;
+ 
+}
+.ProductsInputfield{
+    margin-right: 220px;
+    border: 1px solid rgb(99, 99, 99); 
+       border-radius: 4px;
+    height: 250px;
+  margin-top: -2px;
+   width: 101%;
+   padding: 6px;
+}
+.Outline{
+   text-align: left;
+    width: 90%;
+   font-weight: 500;
+   margin-left: 5%;
+}
+.Leftside{
+    width: 45%;
+    list-style: none;
+    margin-top: 3%;
+}
+.Rightside{
+    width: 45%;
+    float: right;
+    margin-top: -195px;
+    list-style: none;
+}
+.ProductsInput{
+    width:50%;
+  font-weight: 500;
+       height: 30px;
+       color: black;
+    font-size: 15px;
+    border: 1px solid rgb(99, 99, 99);  
+      margin-top: 10px;
+padding: 3px;
+margin-left: 10px;
+}
+.Categorydropdown{
+   width: 52%;
+   height: 38px;
+   border: 1px solid rgb(99, 99, 99);  
+    padding: 3px;
+   font-weight: 500;
+   margin-top: 10px;
+   color: black;
+   font-size: 15px;
+}
+.ProductsCreatebutton{
+    background-color: rgb(5, 25, 40);
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 40%;
+    border: none;
+    font-size: large;
+    padding-top: 3px;
+
+ 
+}
+.ProductsCreatebutton:hover{
+    color: rgb(5, 25, 40);
+    background-color: white;
+    border: 1px solid rgb(5, 25, 40);
+   }
+   .ProductsUpdatebutton{
+    background-color: rgb(5, 25, 40);
+    color: white;
+        border-radius: 5px;
+        height: 40px;
+    width: 40%;
+        border: none;
+   }
+   .ProductsUpdatebutton:hover{
+    color: rgb(5, 25, 40);
+    background-color: white;
+    border: 1px solid rgb(5, 25, 40);
+   }
+   .ProductsEditbutton{
+    background-color: rgb(4, 86, 4);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 40%;
+   border: none;
+    margin-right: 10px;
+   }
+   .ProductsEditbutton:hover{
+    color: rgb(4, 86, 4);
+    background-color: white;
+    border: 1px solid rgb(4, 86, 4);
+   }
+   .ProductsDeleteSelectedButton{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    border: none;
+    margin-left: 10px;
+  width: 40%;
+  margin-bottom: 3px;
+  font-size: medium;
+  padding-top: 2px;
+ 
+   }
+   .ProductsDeleteSelectedButton:hover{
+    color: red;
+    background-color: white;
+   border: 1px solid red;
+   
+   }
+   .ProductsInput-table{
+    margin-top: 10%;
+       border: 1px solid rgb(193, 191, 191) ;
+    padding-top: 0;
+      }
+.ProductsTable{
+  width: 103%;   
+    border-collapse: collapse;
+    border-top: 1px solid rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(99, 99, 99);
+margin-top: 100px;
+}
+
+.ProductsTd{
+    height: 40px;
+    border:1px solid rgb(99, 99, 99);
+}
+.ProductsTh{
+    background-color: rgba(255, 255, 255, 0.599);
+    border: 1px solid rgb(99, 99, 99);
+    color: #383838;
+    padding: 1%
+}
+.Products-Pagination{
+    margin-top: 2%;
+    padding: 5px;
+    font-size: larger;
+    font-weight: 500;
+}
+.Previous-Button{
+    background-color: rgb(0, 128, 255);
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 200;
+    margin-right: 2%;
+    cursor: pointer;
+}
+.Next-Button{
+    background-color: rgb(0, 128, 255);
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 200;
+    margin-left: 2%;
+    cursor: pointer;
+}
